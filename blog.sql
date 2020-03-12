@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2020 at 10:12 AM
+-- Generation Time: Mar 12, 2020 at 10:20 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -41,6 +41,29 @@ CREATE TABLE `content` (
 INSERT INTO `content` (`id_content`, `title`, `text`) VALUES
 (1, 'fd', 'df');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `updated_at`, `created_at`) VALUES
+(1, 'asfasf', 'safw@ansfa.com', 'asg3wt4yg', '2020-03-12 08:17:28', '2020-03-12 08:17:28'),
+(3, 'admin', 'admin@jwt.com', '$2y$10$Afs2X1JJHo87gO46cMLb6edT/iNWDIYMJiV9CHuf4ifYM18vcI40C', '2020-03-12 09:04:05', '2020-03-12 09:04:05');
+
 --
 -- Indexes for dumped tables
 --
@@ -52,6 +75,13 @@ ALTER TABLE `content`
   ADD PRIMARY KEY (`id_content`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -60,6 +90,12 @@ ALTER TABLE `content`
 --
 ALTER TABLE `content`
   MODIFY `id_content` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
